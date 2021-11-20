@@ -52,3 +52,21 @@ void Clear(Node* node) {
 void Clear(BinTree& tree) { 
   Clear(tree.root);
 }
+
+int SearchHeight(Node* temp) {
+  if (temp == nullptr) {
+    return 0;
+  }
+  if (temp->left == nullptr && temp->right == nullptr) {
+    return 0;
+  }
+  int max1 = 0;
+  int max2 = 0;
+  if (temp->left != nullptr) {
+    max1 = 1 + SearchHeight(temp->left);
+  }
+  if (temp->right != nullptr) {
+    max2 = 1 + SearchHeight(temp->right);
+  }
+  return std::max(max1, max2);
+}
