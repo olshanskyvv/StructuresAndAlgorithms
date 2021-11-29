@@ -20,7 +20,7 @@ int LowerBound(const int *arr, int left, int right, int value) {
   }
   int middle = (right - left) / 2 + left;
   if (arr[middle] >= value) {
-    return LowerBound(arr, left - 1, middle, value);
+    return LowerBound(arr, left, middle, value);
   }
   return LowerBound(arr, middle, right, value);
 }
